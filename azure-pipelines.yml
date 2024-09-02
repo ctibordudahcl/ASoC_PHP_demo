@@ -33,3 +33,15 @@ steps:
     buildfailconditionHigh: '0'
     buildfailMedium: true
     buildfailconditionMedium: '3'
+- task: HCLAppScanOnCloud@2
+  inputs:
+    AppSecTestService: 'ASoC'
+    applications: '2fe5bb97-87b1-4d27-b81a-315435790264'
+    scantype: 'static'
+    scanMethod: 'IRX'
+    intervention: false
+    FailBuildConfiguration: true
+    FailBuildChoice: 'conditionset'
+    buildfailconditionTotal: '1'
+    buildfailCritical: true
+    buildfailconditionCritical: '1'
