@@ -9,7 +9,7 @@ fi
 if [ "$scanLatestCommitFiles" = 'yes' ]; then
   echo "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?><Configuration enableSecrets=\"true\" sourceCodeOnly=\"true\" staticAnalysisOnly=\"true\"><Targets><Target path=\"$PWD\"></Target></Targets></Configuration>" > appscan-config.xml
   echo "Only these files will be scanned:"
-  echo "git diff --name-only HEAD~1 HEAD^"
+  echo $(git diff --name-only HEAD~1 HEAD^)
   diffFilesList=$(git diff --name-only HEAD^)
   readarray -t diffFiles <<< "$diffFilesList"
   for i in ${diffFiles[@]}; do sed -i "s|\(</Target>\)|<Include>$i</Include>\1|" appscan-config.xml; done
