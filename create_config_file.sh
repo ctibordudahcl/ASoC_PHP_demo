@@ -1,4 +1,5 @@
 #!/bin/sh
+git fetch --unshallow
 scanLatestCommitFiles='yes'
 
 if [[ -z "$scanLatestCommitFiles" || ( "$scanLatestCommitFiles" != "yes" && "$scanLatestCommitFiles" != "no" ) ]]; then
