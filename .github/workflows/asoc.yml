@@ -11,10 +11,11 @@ jobs:
       - name: Create config file
         run: bash ./create_config_file.sh
       - name: Run AppScan SAST scan
-        uses: HCL-TECH-SOFTWARE/appscan-sast-action@v1.0.6
+        uses: HCL-TECH-SOFTWARE/appscan-sast-action@v1.0.7
         with:
-          asoc_key: ${{secrets.ASOC_KEY}}
-          asoc_secret: ${{secrets.ASOC_SECRET}}
+          service_url: https://eu.cloud.appscan.com
+          asoc_key: ${{secrets.EU_ASOC_KEY}}
+          asoc_secret: ${{secrets.EU_ASOC_SECRET}}
           application_id: ${{vars.ASOC_APPID}}
           #wait_for_analysis: true
           #fail_for_noncompliance: true
